@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>San Valentín ❤️</title>
+<style>
+:root{--rojo:#e60026;--rosa:#ff4d6d;--dorado:#ffd700}
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,'Times New Roman',cursive;background:linear-gradient(180deg,#120005,#2b000c);color:white}
+section{padding:10px 12px}
+.box{max-width:420px;margin:8px auto;padding:18px;border-radius:18px;background:rgba(255,255,255,.08);box-shadow:0 8px 25px rgba(0,0,0,.4)}
+.tag{text-align:center;font-size:.65rem;letter-spacing:1px;opacity:.8;margin-bottom:6px}
+p{text-align:center;line-height:1.6;font-size:1rem}
+button{background:linear-gradient(135deg,var(--rojo),var(--rosa));border:none;border-radius:14px;padding:12px 16px;color:white;font-weight:700;width:100%;cursor:pointer}
+
+/* corazones */
+.heart{position:fixed;left:50%;top:50%;font-size:18px;pointer-events:none}
+
+/* medidor */
+.meter{height:14px;background:#33000d;border-radius:999px;overflow:hidden;margin:8px 0}
+.meter span{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff4d6d,#ff9aa2);transition:width 1.5s}
+
+/* neon gracias */
+.neon-box{border:2px solid var(--dorado);box-shadow:0 0 12px var(--dorado),0 0 25px rgba(255,215,0,.6)}
+.neon-text{color:white;text-shadow:0 0 6px white,0 0 12px white;font-size:1.4rem}
+
+.bubble {
+  position: fixed;
+  font-size: 14px;
+  pointer-events: none;
+  user-select: none;
+  animation: floatUp 4s linear forwards;
+}
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity:1; }
+  100% { transform: translateY(-300px) rotate(360deg); opacity:0; }
+}
+.meter span {
+  display:flex;
+  gap:2px;
+}
+.meter span::after {
+  content:'💖💖💖💖💖';
+  display:block;
+  opacity:0.2;
+  transition:opacity 1s;
+}
+.meter span.full::after { opacity:1; }
+button:hover, .neon-text:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 8px white, 0 0 16px var(--rosa);
+  transition: all 0.3s;
+}
+
+
+
+</style>
+</head>
+<body>
+
+<!-- MUSICA -->
+<audio id="music" loop>
+<source src="https://cdn.pixabay.com/audio/2022/02/23/audio_3e4d7b7b9b.mp3" type="audio/mpeg">
+</audio>
+
+<!-- CARTITA INICIAL -->
+<section>
+<div class="box">
+<div class="tag">PARA VOS</div>
+<p>Hola amor… hice esto con todo mi corazón. Cada palabra, cada detalle, es porque sos alguien muy especial para mí.</p>
+<p>Gracias por llegar a mi vida y hacerla más bonita ❤️</p>
+</div>
+</section>
+
+<!-- CARTA CON BOTON -->
+<section>
+<div class="box">
+<div class="tag">DECIME</div>
+<p id="msg1">Tocá el botón</p>
+<button onclick="changeMsg()">💌 Presioná</button>
+</div>
+</section>
+
+<!-- SI SUPIERAS -->
+<section>
+<div class="box">
+<div class="tag">SI SUPIERAS</div>
+<p id="secret" style="display:none">Si supieras cuánto te pienso, cuánto te cuido y cuánto te amo incluso en silencio…</p>
+<button onclick="showSecret()">✨ Mostrar</button>
+</div>
+</section>
+
+<!-- MEDIDOR -->
+<section>
+<div class="box">
+<div class="tag">LO QUE SIENTO</div>
+<p>Te extraño</p><div class="meter"><span id="m1"></span></div>
+<p>Te necesito</p><div class="meter"><span id="m2"></span></div>
+<p>Te elijo</p><div class="meter"><span id="m3"></span></div>
+<button onclick="measureAll()">💖 Medir todo</button>
+</div>
+</section>
+
+<!-- BOTON ESPECIAL -->
+<section>
+<div class="box">
+<div class="tag">SOLO VOS</div>
+<p>Toca aqui amor…</p>
+<button onclick="explode()">❤️ Tocá acá</button>
+</div>
+</section>
+
+<!-- GRACIAS -->
+<section>
+<div class="box neon-box">
+<div class="tag">GRACIAS</div>
+<p class="neon-text">Gracias por existir</p>
+</div>
+</section>
+
+<!-- TARJETA SORPRESA -->
+<section>
+  <div class="box" style="background:rgba(255,182,193,0.2);border:2px dashed var(--rosa)">
+    <div class="tag">SORPRESA</div>
+    <p id="surpriseMsg">Tocá el botón para ver un mensaje secreto…</p>
+    <button onclick="revealSurprise()">🎁 Revelar</button>
+  </div>
+</section>
+
+<div id="bubbles"></div>
+
+<section>
+  <div class="box neon-box" style="border-color:var(--rosa);box-shadow:0 0 15px var(--rosa),0 0 35px rgba(255,77,109,.6);">
+    <div class="tag">MI AMOR</div>
+    <p class="neon-text" style="color:#ff4d6d;text-shadow:0 0 6px #ff4d6d,0 0 12px #ff99aa;">Eres mi luz ✨</p>
+  </div>
+</section>
+
+<div class="meter">
+  <span id="loveMeter"></span>
+</div>
+
+
+
+<script>
+/* musica segura */
+window.addEventListener('click',()=>{const m=document.getElementById('music');m.volume=0.8;m.play();},{once:true});
+
+/* mensajes */
+const texts=['Me hacés feliz','Sos mi lugar seguro','Me encantas','Te elijo siempre'];let i=0;
+function changeMsg(){document.getElementById('msg1').textContent=texts[i++%texts.length];}
+
+function showSecret(){document.getElementById('secret').style.display='block';}
+
+function measureAll(){['m1','m2','m3'].forEach(id=>document.getElementById(id).style.width='100%');}
+
+function explode(){for(let i=0;i<60;i++){const h=document.createElement('div');h.className='heart';h.textContent='💖';const a=(Math.PI*2*i)/60;const r=120;h.animate([{transform:'translate(0,0)',opacity:1},{transform:`translate(${Math.cos(a)*r}px,${Math.sin(a)*r}px)`,opacity:0}],{duration:1400});document.body.appendChild(h);setTimeout(()=>h.remove(),1500);}}
+
+function revealSurprise(){
+  const msgs = ['Eres mi todo 💕','Contigo todo es mejor 😘','Siempre pienso en vos 🌹'];
+  document.getElementById('surpriseMsg').textContent = msgs[Math.floor(Math.random()*msgs.length)];
+}
+function makeBubble(text){
+  const b=document.createElement('div');
+  b.className='bubble';
+  b.textContent=text;
+  b.style.left = Math.random()*window.innerWidth+'px';
+  document.body.appendChild(b);
+  setTimeout(()=>b.remove(),4000);
+}
+
+// ejemplo: palabras bonitas al azar
+['Te amo','Mi vida','Mi sol','Corazón'].forEach((t,i)=>setTimeout(()=>makeBubble(t),i*600));
+
+function fillHearts(){
+  document.getElementById('loveMeter').classList.add('full');
+}
+
+</script>
+</body>
+</html>
