@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz San Valentín Mamá ❤️</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family:'Segoe UI', sans-serif;
+    background:linear-gradient(to bottom, #7a0019, #b3003c, #ff4d6d);
+    background-attachment: fixed;
+    color:#fff;
+    text-align:center;
+    min-height:100vh;
+}
+
+h1{
+    margin-top:40px;
+    font-size:2.5em;
+    animation:fadeIn 2s ease-in-out;
+}
+.subtitulo-neon{
+    font-family:'Brush Script MT', cursive;
+    font-size:2em;
+    margin-top:10px;
+    color:white;
+    text-shadow:
+        0 0 5px #ffffff,
+        0 0 10px #ffffff,
+        0 0 20px #ffffff,
+        0 0 40px #ffffff;
+    animation:brilloBlanco 2s infinite alternate;
+}
+
+@keyframes brilloBlanco{
+    from{
+        text-shadow:
+            0 0 5px #ffffff,
+            0 0 10px #ffffff;
+    }
+    to{
+        text-shadow:
+            0 0 15px #ffffff,
+            0 0 30px #ffffff,
+            0 0 50px #ffffff;
+    }
+}
+
+.container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:25px;
+    padding:40px 20px;
+    width:100%;
+}
+.card{
+    background:#ffffff;
+    width:85%;
+    max-width:360px;   /* más delgadas */
+    min-height:150px;
+    padding:20px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    font-size:17px;
+    color:#7a0019;   /* texto rojo elegante */
+    transition:0.3s;
+}
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 25px rgba(0,0,0,0.2);
+}
+
+
+.card{
+    margin-bottom: 10px;
+}
+
+
+.card:hover{
+    transform:scale(1.05);
+    box-shadow:0 15px 30px rgba(0,0,0,0.4);
+}
+
+.card:nth-child(1){animation-delay:0.5s;}
+.card:nth-child(2){animation-delay:1s;}
+.card:nth-child(3){animation-delay:1.5s;}
+.card:nth-child(4){animation-delay:2s;}
+.card:nth-child(5){animation-delay:2.5s;}
+.card:nth-child(6){animation-delay:3s;}
+.card:nth-child(7){animation-delay:3.5s;}
+.card:nth-child(8){animation-delay:4s;}
+.card:nth-child(9){animation-delay:4.5s;}
+.card:nth-child(10){animation-delay:5s;}
+.card:nth-child(11){animation-delay:5.5s;}
+.card:nth-child(12){animation-delay:6s;}
+.card:nth-child(13){animation-delay:6.5s;}
+.card:nth-child(14){animation-delay:7s;}
+.card:nth-child(15){animation-delay:7.5s;}
+.card:nth-child(16){animation-delay:8s;}
+.card:nth-child(17){animation-delay:8.5s;}
+.card:nth-child(18){animation-delay:9s;}
+.card:nth-child(19){animation-delay:9.5s;}
+.card:nth-child(20){animation-delay:10s;}
+.card:nth-child(21){animation-delay:10.5s;}
+.card:nth-child(22){animation-delay:11s;}
+.card:nth-child(23){animation-delay:11.5s;}
+.card:nth-child(24){animation-delay:12s;}
+.card:nth-child(25){animation-delay:12.5s;}
+.card:nth-child(26){animation-delay:13s;}
+.card:nth-child(27){animation-delay:13.5s;}
+.card:nth-child(28){animation-delay:14s;}
+.card:nth-child(29){animation-delay:14.5s;}
+.card:nth-child(30){animation-delay:15s;}
+.card:nth-child(31){animation-delay:15.5s;}
+.card:nth-child(32){animation-delay:16s;}
+.card:nth-child(33){animation-delay:16.5s;}
+.card:nth-child(34){animation-delay:17s;}
+.card:nth-child(35){animation-delay:17.5s;}
+.card:nth-child(36){animation-delay:18s;}
+.card:nth-child(37){animation-delay:18.5s;}
+.card:nth-child(38){animation-delay:19s;}
+.card:nth-child(39){animation-delay:19.5s;}
+.card:nth-child(40){animation-delay:20s;}
+.card:nth-child(41){animation-delay:20.5s;}
+.card:nth-child(42){animation-delay:21s;}
+.card:nth-child(43){animation-delay:21.5s;}
+.card:nth-child(44){animation-delay:22s;}
+.card:nth-child(45){animation-delay:22.5s;}
+
+.hidden{
+    display:none;
+    margin-top:15px;
+    font-weight:bold;
+    color:#ff3366;
+}
+
+button{
+    background:#ff3366;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:15px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#ff6699;
+    transform:scale(1.1);
+}
+
+.progress-container{
+    width:80%;
+    max-width:400px;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    margin:auto;
+}
+
+.progress-bar{
+    height:25px;
+    width:0%;
+    background:#ff3366;
+    transition:1s;
+}
+
+.heart{
+    position:fixed;
+    bottom:-10px;
+    font-size:20px;
+    animation:float 6s linear infinite;
+    color:#ffd6e0;
+}
+
+.caja-regalo{
+    font-size:50px;
+    cursor:pointer;
+    transition:0.5s;
+}
+
+.caja-regalo:hover{
+    transform:scale(1.2);
+}
+
+.brillo{
+    animation:brillar 1s infinite alternate;
+}
+
+@keyframes brillar{
+    from{ text-shadow:0 0 5px #fff; }
+    to{ text-shadow:0 0 20px gold; }
+}
+
+@keyframes aparecer{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+@keyframes float{
+    0%{transform:translateY(0); opacity:1;}
+    100%{transform:translateY(-100vh); opacity:0;}
+}
+
+@keyframes desaparecer{
+    from{opacity:1; transform:scale(1);}
+    to{opacity:0; transform:scale(2);}
+}
+.final-card{
+    background:#fffaf0;
+    width:90%;
+    max-width:500px;
+    padding:35px;
+    border-radius:25px;
+    margin-top:40px;
+    color:#7a0019;
+    font-family:'Georgia', serif;
+    font-size:18px;
+    line-height:1.7;
+    border:3px solid gold;
+    box-shadow:0 0 15px gold,
+               0 0 30px goldenrod,
+               0 0 45px gold;
+    animation:brilloFinal 2s infinite alternate;
+}
+
+@keyframes brilloFinal{
+    from{
+        box-shadow:0 0 10px gold,
+                   0 0 20px goldenrod;
+    }
+    to{
+        box-shadow:0 0 25px gold,
+                   0 0 50px goldenrod;
+    }
+}
+
+
+</style>
+</head>
+
+<body>
+
+<h1>💖 Feliz San Valentín Mamá 💖</h1>
+
+<div class="subtitulo-neon">
+  Eres el amor de mi vida  🤍
+</div>
+
+
+<div class="container">
+
+<!-- Ejemplo de tarjetas separadas -->
+<div class="card" onclick="mostrar(this)">
+💌 Tócame mamá
+<div class="hidden">Eres el corazón de nuestra familia y mi ejemplo más grande ❤️</div>
+</div>
+
+<div class="card">
+🎡 Ruleta del amor
+<br><br>
+<button onclick="ruleta()">Girar</button>
+<p id="resultado"></p>
+</div>
+
+<div class="card">
+💖 Medidor de amor hacia mamá
+<br><br>
+<button onclick="llenar()">Medir</button>
+<br><br>
+<div class="progress-container">
+<div class="progress-bar" id="barra"></div>
+</div>
+</div>
+
+<div class="card">
+🌹 Botón sorpresa
+<br><br>
+<button onclick="sorpresa()">Presiona aquí</button>
+</div>
+
+<div class="card">
+🤗 Contador de abrazos
+<br><br>
+<button onclick="sumarAbrazo()">Dar abrazo</button>
+<p id="abrazos">Abrazos: 0</p>
+</div>
+
+<div class="card">
+🎁 Regalo sorpresa
+<br><br>
+<div class="caja-regalo" onclick="abrirRegalo()">🎁</div>
+<p id="mensajeRegalo"></p>
+</div>
+
+<div class="card">
+🌟 Lluvia mágica
+<br><br>
+<button onclick="lluviaMagica()">Haz magia</button>
+</div>
+
+<div class="card" onclick="mostrar(this)">
+💌 Carta especial
+<div class="hidden">Mamá, gracias por cada desvelo, cada consejo y cada abrazo. Eres mi todo ❤️</div>
+</div>
+
+<div class="card">
+💖 Amor infinito
+<br><br>
+<button onclick="amorInfinito()">Presiona aquí</button>
+<p id="infinito"></p>
+</div>
+
+<!-- Aquí puedes agregar tus 20 secciones más como tarjetas separadas -->
+<!-- Ejemplo: -->
+<div class="card" onclick="toggle(this)">
+💌 Momentos juntas
+<div class="hidden">Cada recuerdo contigo es un tesoro ❤️</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+🌷 Gracias mamá
+<div class="hidden">Gracias por enseñarme a ser fuerte y amable 💖</div>
+</div>
+
+
+<div class="card">
+💥 Explosión de amor
+<br><br>
+<button onclick="explosionMama()">Desatar amor</button>
+</div>
+
+<div class="card" onclick="toggle(this)">
+🌸 Cosas que amo de ti
+<div class="hidden">Tu forma de cuidarme y tu corazón tan noble 💖</div>
+</div>
+
+<!-- 2 -->
+<div class="card">
+💌 Mensaje secreto
+<br><br>
+<button onclick="mensajeSecreto()">Descubrir</button>
+<p id="secreto"></p>
+</div>
+
+<!-- 3 -->
+<div class="card" onclick="toggle(this)">
+🌷 Gracias por todo
+<div class="hidden">Gracias por cada sacrificio que hiciste por mí ❤️</div>
+</div>
+
+<!-- 4 -->
+<div class="card">
+🌟 Estrella para mamá
+<br><br>
+<button onclick="estrellaMama()">Pedir deseo</button>
+</div>
+
+<!-- 5 -->
+<div class="card" onclick="toggle(this)">
+👑 Reina de mi vida
+<div class="hidden">Eres y siempre serás la reina de mi corazón 👑</div>
+</div>
+
+<!-- 6 -->
+<div class="card">
+🎀 Cupón especial
+<br><br>
+<button onclick="cupon()">Canjear</button>
+<p id="cuponTexto"></p>
+</div>
+
+<!-- 7 -->
+<div class="card" onclick="toggle(this)">
+🌈 Mi inspiración
+<div class="hidden">Me inspiras a ser mejor cada día 🌈</div>
+</div>
+
+<!-- 8 -->
+<div class="card">
+💖 Amor al 1000%
+<br><br>
+<button onclick="amorMil()">Activar</button>
+<p id="amorMilTexto"></p>
+</div>
+
+<!-- 9 -->
+<div class="card" onclick="toggle(this)">
+🌻 Mi lugar seguro
+<div class="hidden">Contigo todo es más fácil y bonito 🌻</div>
+</div>
+
+<!-- 10 -->
+<div class="card">
+🎊 Mini celebración
+<br><br>
+<button onclick="celebracionMama()">Celebrar</button>
+</div>
+
+<!-- 11 -->
+<div class="card" onclick="toggle(this)">
+🫶 Mi apoyo eterno
+<div class="hidden">Siempre estás cuando más te necesito 🫶</div>
+</div>
+
+<!-- 12 -->
+<div class="card">
+✨ Brillo especial
+<br><br>
+<button onclick="brilloMama()">Brillar</button>
+</div>
+
+<!-- 13 -->
+<div class="card" onclick="toggle(this)">
+💎 Tesoro valioso
+<div class="hidden">Eres el tesoro más grande que tengo 💎</div>
+</div>
+
+<!-- 14 -->
+<div class="card">
+🌹 Más flores para ti
+<br><br>
+<button onclick="lluviaFlores()">Enviar flores</button>
+</div>
+
+<!-- 15 -->
+<div class="card" onclick="toggle(this)">
+☀ Luz de mi vida
+<div class="hidden">Iluminas cada paso que doy ☀</div>
+</div>
+
+<!-- 16 -->
+<div class="card">
+💞 Multiplicar amor
+<br><br>
+<button onclick="multiplicarAmor()">Multiplicar</button>
+</div>
+
+<!-- 17 -->
+<div class="card" onclick="toggle(this)">
+🌙 Siempre contigo
+<div class="hidden">De día y de noche, siempre estás para mí 🌙</div>
+</div>
+
+
+<!-- 19 -->
+<div class="card" onclick="toggle(this)">
+🌸 Amor eterno
+<div class="hidden">Mi amor por ti no tiene final 🌸</div>
+</div>
+
+<!-- 20 -->
+<div class="card">
+💖 Final mágico extra
+<br><br>
+<button onclick="finalMagico()">Descubrir</button>
+<p id="finalMagicoTexto"></p>
+</div>
+
+<div class="final-card">
+✨ Mi Carta Final Para Ti ✨
+<br><br>
+Mamá hermosa,
+
+Hoy quiero que esta última parte sea la más especial de todas.
+Quiero que sepas que cada palabra en esta página fue escrita con el corazón.
+
+Gracias por cada sacrificio silencioso,
+por cada noche sin dormir,
+por cada consejo lleno de amor,
+por cada abrazo que me salvó sin que yo lo notara.
+
+Eres mi fuerza cuando me siento débil,
+mi calma cuando el mundo pesa,
+mi guía cuando me siento perdida.
+
+No existe en este universo alguien que ame como tú amas.
+Tu amor no tiene condiciones,
+no tiene límites,
+no tiene final.
+
+Si volviera a nacer mil veces,
+mil veces elegiría ser tu hija.
+
+Gracias por existir.
+Gracias por ser tú.
+Gracias por ser mi mamá.
+
+Te amo más de lo que las palabras pueden explicar.
+Y siempre será así. 💖✨
+</div>
+
+
+
+</div>
+
+</div>
+
+<audio autoplay loop>
+<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
+
+<script>
+function mostrar(card){
+    let hidden = card.querySelector(".hidden");
+    hidden.style.display = hidden.style.display === "block" ? "none" : "block";
+}
+
+function toggle(card){
+    let hidden = card.querySelector(".hidden");
+    hidden.style.display = hidden.style.display === "block" ? "none" : "block";
+}
+
+function ruleta(){
+    const palabras=["Amor eterno ❤️","Mi heroína 💪","Mi bendición 🌸","Mi guía ✨","Mi hogar 🏡"];
+    let random = palabras[Math.floor(Math.random()*palabras.length)];
+    document.getElementById("resultado").innerText=random;
+}
+
+function ruletaMama(){
+    const frases=["Mi heroína ❤️","Mi bendición 🌸","Mi guía ✨","Mi hogar 🏡"];
+    document.getElementById("resultadoMama").innerText=frases[Math.floor(Math.random()*frases.length)];
+}
+
+function llenar(){
+    let barra=document.getElementById("barra");
+    barra.style.width="100%";
+    explosionCorazones();
+}
+
+function sorpresa(){
+    document.body.style.background="linear-gradient(to bottom, #ffd6e0, #ff99cc, #ff3366)";
+}
+
+function explosionCorazones(){
+    for(let i=0;i<25;i++){
+        let heart = document.createElement("div");
+        heart.innerHTML="💖";
+        heart.style.position="fixed";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.top=Math.random()*100+"vh";
+        heart.style.fontSize="25px";
+        heart.style.animation="desaparecer 2s forwards";
+        document.body.appendChild(heart);
+        setTimeout(()=>{heart.remove();},2000);
+    }
+}
+
+function crearCorazon(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(Math.random()*20+10)+"px";
+    heart.style.animationDuration=(Math.random()*3+3)+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>{heart.remove();},6000);
+}
+
+setInterval(crearCorazon,500);
+
+let contador = 0;
+function sumarAbrazo(){
+    contador++;
+    document.getElementById("abrazos").innerText = "Abrazos: " + contador;
+    if(contador === 10){
+        alert("💖 infinitos abrazos 💖");
+    }
+}
+
+function abrirRegalo(){
+    document.getElementById("mensajeRegalo").innerText="✨ Sorpresa: ¡Te amo más de lo que las palabras pueden decir! ✨";
+}
+
+function lluviaMagica(){
+    for(let i=0;i<30;i++){
+        let estrella = document.createElement("div");
+        estrella.innerHTML="✨";
+        estrella.style.position="fixed";
+        estrella.style.left=Math.random()*100+"vw";
+        estrella.style.top=Math.random()*100+"vh";
+        estrella.style.fontSize="20px";
+        estrella.style.animation="desaparecer 2s forwards";
+        document.body.appendChild(estrella);
+        setTimeout(()=>{estrella.remove();},2000);
+    }
+}
+
+function amorInfinito(){
+    let texto=document.getElementById("infinito");
+    texto.innerText="∞ Te amo infinito mamá ∞";
+    texto.classList.add("brillo");
+}
+
+function explosionMama(){
+    for(let i=0;i<60;i++){
+        let heart=document.createElement("div");
+        heart.innerHTML="💖";
+        heart.style.position="fixed";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.top=Math.random()*100+"vh";
+        heart.style.fontSize="25px";
+        heart.style.animation="aparecer 2s forwards";
+        document.body.appendChild(heart);
+        setTimeout(()=>{heart.remove();},3000);
+    }
+}
+function mensajeSecreto(){
+    document.getElementById("secreto").innerText="Eres mi persona favorita en todo el mundo 💌";
+}
+
+function estrellaMama(){
+    lluviaMagica();
+}
+
+function cupon(){
+    document.getElementById("cuponTexto").innerText="Cupón válido por 100 abrazos ilimitados 🤗";
+}
+
+function amorMil(){
+    document.getElementById("amorMilTexto").innerText="Te amo 1000 veces más cada segundo 💖";
+}
+
+function celebracionMama(){
+    explosionCorazones();
+}
+
+function brilloMama(){
+    document.body.classList.add("brillo");
+    setTimeout(()=>{document.body.classList.remove("brillo");},2000);
+}
+
+function lluviaFlores(){
+    for(let i=0;i<30;i++){
+        let flor=document.createElement("div");
+        flor.innerHTML="🌸";
+        flor.style.position="fixed";
+        flor.style.left=Math.random()*100+"vw";
+        flor.style.top=Math.random()*100+"vh";
+        flor.style.fontSize="25px";
+        flor.style.animation="desaparecer 2s forwards";
+        document.body.appendChild(flor);
+        setTimeout(()=>{flor.remove();},2000);
+    }
+}
+
+function multiplicarAmor(){
+    for(let i=0;i<40;i++){
+        let heart=document.createElement("div");
+        heart.innerHTML="💞";
+        heart.style.position="fixed";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.top=Math.random()*100+"vh";
+        heart.style.fontSize="20px";
+        heart.style.animation="desaparecer 2s forwards";
+        document.body.appendChild(heart);
+        setTimeout(()=>{heart.remove();},2000);
+    }
+}
+
+function explosionGrande(){
+    for(let i=0;i<80;i++){
+        let heart=document.createElement("div");
+        heart.innerHTML="❤️";
+        heart.style.position="fixed";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.top=Math.random()*100+"vh";
+        heart.style.fontSize="30px";
+        heart.style.animation="desaparecer 3s forwards";
+        document.body.appendChild(heart);
+        setTimeout(()=>{heart.remove();},3000);
+    }
+}
+
+function finalMagico(){
+    document.getElementById("finalMagicoTexto").innerText="Mamá, gracias por existir. Eres mi todo y mi siempre ❤️✨";
+    explosionGrande();
+}
+
+</script>
+
+</body>
+</html>
