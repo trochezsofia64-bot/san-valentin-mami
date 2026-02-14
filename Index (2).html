@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi persona favorita 🖤</title>
+
+<style>
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #000000, #1a001f, #2b0033);
+    color:#f2e6ff;
+    text-align:center;
+    overflow-x:hidden;
+}
+
+h1{
+    margin-top:40px;
+    font-size:2.3em;
+    color:#d9a3ff;
+    text-shadow:0 0 15px purple;
+}
+
+.container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:30px;
+    padding:40px 20px;
+}
+
+.card{
+    background:#111;
+    border:1px solid #8000ff;
+    width:90%;
+    max-width:400px;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(128,0,255,0.4);
+    transition:0.5s;
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 30px rgba(200,0,255,0.8);
+}
+
+.hidden{
+    display:none;
+    margin-top:15px;
+    color:#ff99ff;
+}
+
+button{
+    background:#4b0082;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#8000ff;
+    transform:scale(1.1);
+}
+
+.heart{
+    position:fixed;
+    bottom:-10px;
+    font-size:18px;
+    animation:float 6s linear infinite;
+    color:#8000ff;
+}
+
+@keyframes float{
+    0%{transform:translateY(0); opacity:1;}
+    100%{transform:translateY(-100vh); opacity:0;}
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+.carta-final{
+    background:#0d0d0d;
+    width:90%;
+    max-width:500px;
+    padding:35px;
+    border-radius:20px;
+    margin-top:40px;
+    color:#f2e6ff;
+    font-family:'Georgia', serif;
+    line-height:1.8;
+    font-size:18px;
+    border:2px solid white;
+    box-shadow:
+        0 0 10px #ffffff,
+        0 0 20px #ffffff,
+        0 0 40px #ffffff;
+    animation:neonBlanco 2s infinite alternate;
+}
+
+@keyframes neonBlanco{
+    from{
+        box-shadow:
+            0 0 10px #ffffff,
+            0 0 20px #ffffff;
+    }
+    to{
+        box-shadow:
+            0 0 25px #ffffff,
+            0 0 50px #ffffff;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🖤 Feliz San Valentín Mejor Amiga 🖤</h1>
+
+<div class="container">
+
+<div class="card" onclick="mostrar(this)">
+Porque se que... 
+<div class="hidden">Tu corazón es el más brillante que conozco ✨</div>
+</div>
+
+<div class="card" onclick="mostrar(this)">
+amas lo negro 🕷️
+<div class="hidden">Y mi paz al mismo tiempo 🖤</div>
+</div>
+
+<div class="card">
+🎡 Ruleta del amor
+<br><br>
+<button onclick="ruleta()">Girar</button>
+<p id="resultado"></p>
+</div>
+
+<div class="card">
+🖤 Medidor de amistad eterna
+<br><br>
+<button onclick="llenar()">Activar</button>
+<br><br>
+<div style="background:#333;border-radius:20px;overflow:hidden;">
+<div id="barra" style="height:20px;width:0%;background:#8000ff;transition:1s;"></div>
+</div>
+</div>
+
+<div class="card">
+🌙 Botón secreto
+<br><br>
+<button onclick="oscuro()">Entrar al modo más oscuro</button>
+</div>
+
+<!-- 1 -->
+<div class="card" onclick="mostrar(this)">
+Tu compañia…
+<div class="hidden">Durante todos estos años ha sido lo mejor que me ha pasado 🖤</div>
+</div>
+
+<!-- 2 -->
+<div class="card" onclick="mostrar(this)">
+Promesa🌙
+<div class="hidden">Siempre voy a estar para ti, incluso en tus días más grises.</div>
+</div>
+
+<!-- 3 -->
+<div class="card">
+🔮 Adivina el mensaje
+<br><br>
+<button onclick="mensajeRandom()">Descubrir</button>
+<p id="mensajeRandom"></p>
+</div>
+
+
+<!-- 5 -->
+<div class="card" onclick="colorMagico()">
+🎨 Tócame
+<div class="hidden">Cambiaste el color porque así cambias mi vida ✨</div>
+</div>
+
+
+<!-- 7 -->
+<div class="card" onclick="mostrar(this)">
+No olvides...
+<div class="hidden">Que no hay otra amiga que ame como te amo a ti.. 🌌</div>
+</div>
+
+<!-- 8 -->
+<div class="card">
+💌 Mensaje secreto
+<br><br>
+<button onclick="secreto()">Abrir</button>
+<p id="secretoMsg"></p>
+</div>
+
+<!-- 9 -->
+<div class="card" onclick="mostrar(this)">
+Eres diferente…
+<div class="hidden">Y eso es lo que más amo de ti 🖤</div>
+</div>
+
+<!-- 10 -->
+<div class="card">
+🕯️ Encender energía
+<br><br>
+<button onclick="energia()">Activar</button>
+</div>
+
+<!-- 11 -->
+<div class="card" onclick="mostrar(this)">
+Si fueras canción…
+<div class="hidden">Serías mi favorita en repetición eterna 🎧</div>
+</div>
+
+<!-- 12 -->
+<div class="card">
+🌌 Generador de apodos
+<br><br>
+<button onclick="apodo()">Crear</button>
+<p id="apodo"></p>
+</div>
+
+<!-- 13 -->
+<div class="card" onclick="mostrar(this)">
+Tu abrazo…
+<div class="hidden">Es mi lugar seguro, espero verte pronto 🖤</div>
+</div>
+
+<!-- 14 -->
+<div class="card">
+🎭 Mood actual
+<br><br>
+<button onclick="mood()">Descubrir</button>
+<p id="mood"></p>
+</div>
+
+<!-- 15 -->
+<div class="card" onclick="mostrar(this)">
+Somos caos…
+<div class="hidden">Pero del bonito ✨</div>
+</div>
+
+<!-- 16 -->
+<div class="card">
+🌠 Deseo oscuro
+<br><br>
+<button onclick="deseo()">Pedir</button>
+<p id="deseo"></p>
+</div>
+
+<!-- 17 -->
+<div class="card" onclick="mostrar(this)">
+Gracias por…
+<div class="hidden">Ser mi persona favorita todos los días 🖤</div>
+</div>
+
+<!-- 18 -->
+<div class="card">
+🖤 Nivel de importancia
+<br><br>
+<button onclick="importancia()">Calcular</button>
+<p id="importancia"></p>
+</div>
+
+<!-- 19 -->
+<div class="card" onclick="mostrar(this)">
+Nuestra amistad…
+<div class="hidden">No tiene fecha de vencimiento ♾️</div>
+</div>
+
+<!-- 20 -->
+<div class="card">
+🌙 Portal eterno
+<br><br>
+<button onclick="portal()">Abrir portal</button>
+</div>
+
+<div class="carta-final">
+🖤 Carta final para mi persona favorita 🖤
+<br><br>
+
+No sé en qué momento te convertiste en mi lugar seguro,
+pero sé que ahora no imagino mi vida sin ti.
+
+Gracias por cada risa compartida,
+por cada conversación profunda a las 2 de la mañana,
+por entender mis silencios,
+por abrazar mis días oscuros.
+
+Eres esa persona que llegó sin avisar
+y decidió quedarse para siempre.
+
+Nuestra amistad no es común,
+es intensa, real, leal y eterna.
+
+Si el mundo se vuelve gris,
+sé que contigo todo vuelve a tener color.
+
+No importa la distancia,
+no importa el tiempo,
+yo siempre voy a estar para ti.
+
+Porque no eres solo mi mejor amiga…
+eres mi persona favorita en este universo.
+
+Y eso jamás va a cambiar. 🖤✨
+</div>
+
+
+
+</div>
+
+<script>
+
+function mostrar(card){
+    let hidden = card.querySelector(".hidden");
+    hidden.style.display = hidden.style.display === "block" ? "none" : "block";
+}
+
+function ruleta(){
+    const palabras=["Te amo amiga🖤","Mi alma gemela oscura 🌙","Mi persona favorita 🕷️"," hermosa ✨"];
+    let random = palabras[Math.floor(Math.random()*palabras.length)];
+    document.getElementById("resultado").innerText=random;
+}
+
+function llenar(){
+    document.getElementById("barra").style.width="100%";
+    explosion();
+}
+
+function oscuro(){
+    document.body.style.background="black";
+}
+
+function explosion(){
+    for(let i=0;i<25;i++){
+        let heart = document.createElement("div");
+        heart.innerHTML="🖤";
+        heart.style.position="fixed";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.top=Math.random()*100+"vh";
+        heart.style.fontSize="20px";
+        heart.style.animation="fadeIn 2s forwards";
+        document.body.appendChild(heart);
+        setTimeout(()=>{heart.remove();},2000);
+    }
+}
+
+function crearCorazon(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="🖤";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(Math.random()*15+10)+"px";
+    heart.style.animationDuration=(Math.random()*3+3)+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>{heart.remove();},6000);
+}
+setInterval(crearCorazon,600);
+
+function mensajeRandom(){
+    const mensajes=["Eres perfecta no olvides eso 🖤","Que la vida nos mantenga juntas siempre🌙","Eres mi mejor confidente en todo momento ✨","Mi mejor decisión"];
+    document.getElementById("mensajeRandom").innerText=
+    mensajes[Math.floor(Math.random()*mensajes.length)];
+}
+
+let contador=0;
+function sumar(){
+    contador++;
+    document.getElementById("contador").innerText=contador;
+}
+
+function colorMagico(){
+    event.currentTarget.style.background="#2b0033";
+}
+
+function conexion(){
+    document.getElementById("nivel").innerText=
+    Math.floor(Math.random()*100+1)+"% conectadas";
+}
+
+function secreto(){
+    document.getElementById("secretoMsg").innerText=
+    "Siempre te elegiría a ti 🖤";
+}
+
+function energia(){
+    explosion();
+}
+
+function apodo(){
+    const lista=["Mi pequeñita 🕷️","Canelita 🌙","Mi negrita 👑","Te amo ily"];
+    document.getElementById("apodo").innerText=
+    lista[Math.floor(Math.random()*lista.length)];
+}
+
+function mood(){
+    const moods=["Modo amandote cada dia mas 🖤"];
+    document.getElementById("mood").innerText=
+    moods[Math.floor(Math.random()*moods.length)];
+}
+
+function deseo(){
+    document.getElementById("deseo").innerText=
+    "Que nuestra amistad sea eterna ♾️";
+}
+
+function importancia(){
+    document.getElementById("importancia").innerText="999999999%";
+}
+
+function portal(){
+    document.body.style.background="linear-gradient(to bottom,#000000,#4b0082,#8000ff)";
+}
+
+
+</script>
+
+</body>
+</html>
